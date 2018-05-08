@@ -1,21 +1,20 @@
 # MTrans 项目介绍
-本项目**多源翻译器**(Multisource Translator, MTrans)，是集多种常见在线翻译于一身的轻量级翻译器。通过程序向所支持的在线翻译服务器发送 HTTP 请求，获取并解析返回的结果，为使用者提供便利。目前，本项目暂不提供在线翻译功能，如有需要，开发者可基于此进行二次开发。
-目前支持**翻译源**及**语种**如下:
+本项目 [**多源翻译器**](https://github.com/hujingshuang/MTrans) (Multisource Translator, MTrans)，是集多种常见在线翻译于一身的轻量级翻译器。通过程序向所支持的在线翻译服务器发送 HTTP 请求，获取并解析返回的结果，为使用者提供便利。目前，本项目暂不提供在线翻译功能，如有需要，开发者可基于此进行二次开发。
+目前支持 **翻译源** 及 **语种** 如下:
 
 | 翻译源 | 服务器地址 | 支持语种 | 方式
 | :-: | :-: | :-: | :-: |
 | [百度翻译](http://fanyi.baidu.com/) | http://fanyi.baidu.com/v2transapi | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
-| [有道翻译](http://fanyi.youdao.com/) | http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule |中文、英语、日语、韩语、法语、俄语 | 互译
+| [有道翻译](http://fanyi.youdao.com/) | http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule | 中文、英语、日语、韩语、法语、俄语 | 互译
 | [谷歌翻译](http://translate.google.cn/) | https://translate.google.cn/translate_a/single | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
 | [腾讯翻译君](http://fanyi.qq.com/) | http://fanyi.qq.com/api/translate | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
 | [欧米翻译](http://www.omifanyi.com/) | http://www.omifanyi.com/transSents.do | 中文、英语 | 互译
 | [TryCan](http://www.trycan.com/) | http://fanyi.trycan.com/Transfer.do | 中文、英语 | 互译
 | [金山爱词霸](http://fy.iciba.com/) | http://fy.iciba.com/ajax.php?a=fy | 中文、英语、日语、韩语、法语、德语 | 互译
-| | |
 
 # 一、MTrans 使用说明
 ## 1. 环境配置
-本项目使用 IDEA 进行开发，Maven 进行项目管理，请在 pom.xml 中添加如下依赖。
+本项目使用 IDEA + Maven 进行开发，请在 pom.xml 中添加如下依赖。
 ``` xml
 <dependency>
     <groupId>org.apache.httpcomponents</groupId>
@@ -66,12 +65,12 @@ public class Test {
 ### 1、包/类 一览表
 本项目中主要定义了如下几个包，其命名及作用如下表：
 | 包名 | 包含类 | 说明
-| :- | :-: | :-: |
+| :-: | :-: | :-: |
 | com.swjtu.lang | Lang | 支持的语种列表
 | com.swjtu.util | Util | 工具包
 | com.swjtu.querier | Querier | 查询器
 | com.swjtu.trans | Translator、Baidu、Youdao、Google、Tencent、Omi、Trycan、Iciba | 翻译器
-| | |
+
 
 ### 2、类说明
 - Lang 枚举：定义所支持或将支持的语种，统一并规范了语种列表。
@@ -178,7 +177,7 @@ public final class Google extends Translator {
 
 # 二、提供的 API
 
-本项目封装了若干接口，并通过 Querier 单例类暴露出来的 **5个** API方法，非常简单易于使用:
+本项目封装了若干接口，并通过 Querier 单例类暴露出来的 **5个** API方法，非常简单易于使用，[详见实例](https://github.com/hujingshuang/MTrans/blob/master/src/test/java/com/swjtu/Test.java):
 ``` java
 public static Querier getQuerier();                              // 获取查询器
 public void setParams(Lang from, Lang to, String text);          // 设置查询器参数
@@ -196,8 +195,8 @@ public void detach(Translator translator);                       // 移除查询
 - 将所需语种自定义代号添加到枚举中；
 - 在翻译器的构造函数中将代号映射添加到 langMap 变量中；
 
-举例：对 Youdao 翻译器添加对**西班牙语**的支持：
-- 步骤一：通过查询有道翻译服务器所支持的语种列表可知，支持西班牙语种且其代号为 `es`
+举例：如对 Youdao 翻译器添加 **西班牙语** 的支持：
+- 步骤一：通过查询有道翻译服务器所支持的语种列表可知，支持西班牙语种且其代号为:`es`
 
 - 步骤二：添加语种自定义代号
 	``` java
