@@ -64,13 +64,13 @@ public class Test {
 
 ### 1、包/类 一览表
 本项目中主要定义了如下几个包，其命名及作用如下表：
+
 | 包名 | 包含类 | 说明
 | :-: | :-: | :-: |
 | com.swjtu.lang | Lang | 支持的语种列表
 | com.swjtu.util | Util | 工具包
 | com.swjtu.querier | Querier | 查询器
 | com.swjtu.trans | Translator、Baidu、Youdao、Google、Tencent、Omi、Trycan、Iciba | 翻译器
-
 
 ### 2、类说明
 - Lang 枚举：定义所支持或将支持的语种，统一并规范了语种列表。
