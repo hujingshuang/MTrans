@@ -66,7 +66,7 @@ public class Test {
 本项目中主要定义了如下几个包，其命名及作用如下表：
 
 | 包名 | 包含类 | 说明
-| :-: | :-: | :-: |
+| :- | :-: | :-: |
 | com.swjtu.lang | Lang | 支持的语种列表
 | com.swjtu.util | Util | 工具包
 | com.swjtu.querier | Querier | 查询器
