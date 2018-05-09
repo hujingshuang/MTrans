@@ -11,6 +11,7 @@
 | [欧米翻译](http://www.omifanyi.com/) | http://www.omifanyi.com/transSents.do | 中文、英语 | 互译
 | [TryCan](http://www.trycan.com/) | http://fanyi.trycan.com/Transfer.do | 中文、英语 | 互译
 | [金山爱词霸](http://fy.iciba.com/) | http://fy.iciba.com/ajax.php?a=fy | 中文、英语、日语、韩语、法语、德语 | 互译
+| [搜狗翻译](http://fanyi.sogou.com/) | http://fanyi.sogou.com/reventondc/translate | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
 
 # 一、MTrans 使用说明
 ## 1. 环境配置
@@ -50,6 +51,7 @@ public class Test {
         querier.attach(new Omi());                                               // 向查询器中添加 Omi 翻译器
         querier.attach(new Trycan());                                            // 向查询器中添加 Trycan 翻译器
         querier.attach(new Iciba());                                             // 向查询器中添加 Iciba 翻译器
+        querier.attach(new Sogou());                                             // 向查询器中添加 Sogou 翻译器
 
         List<String> result = querier.execute();                                 // 执行查询并接收查询结果
 
@@ -95,7 +97,7 @@ public static String md5(File file);
 public static String md5(InputStream in);
 ```
 
-- Querier 类：定义了 Querier 类，该是一个线程安全的单例，同时使用了观察者模式。该类包含了一个集合，集合中的元素为翻译器，通过 setParams() 设定好参数后，执行 execute() 方法便可发送翻译请求，同时返回解析好的翻译结果。可以通过 attach() 和 detach() 方法向集合中添加或移除翻译器。
+- Querier 类：定义了 Querier 类，该类是一个线程安全的单例，同时使用了观察者模式。该类包含了一个集合，集合中的元素为翻译器，通过 setParams() 设定好参数后，执行 execute() 方法便可发送翻译请求，同时返回解析好的翻译结果。可以通过 attach() 和 detach() 方法向集合中添加或移除翻译器。
 ``` java
 private List<Translator> translators;                               // 集合
 
