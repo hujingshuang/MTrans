@@ -1,6 +1,7 @@
 package com.swjtu.lang;
 
 public enum Lang {
+    AUTO,           // 自动检测语种
     ZH,             // 中文
     EN,             // 英语
     JP,             // 日语
