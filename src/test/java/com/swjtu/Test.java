@@ -10,7 +10,7 @@ public class Test {
     public static void main(String[] args) {
         Querier querier = Querier.getQuerier();
 
-        querier.setParams(Lang.EN, Lang.ZH, "To be or not to be, that's a question.");
+        querier.setParams(Lang.EN, Lang.ZH, "Happiness is a way station between too much and too little.");
 
         querier.attach(new Baidu());
         querier.attach(new Youdao());
@@ -19,6 +19,7 @@ public class Test {
         querier.attach(new Omi());
         querier.attach(new Trycan());
         querier.attach(new Iciba());
+        querier.attach(new Sogou());
 
         List<String> result = querier.execute();
         for (String str : result) {
