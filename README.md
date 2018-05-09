@@ -72,7 +72,7 @@ public class Test {
 | com.swjtu.lang | Lang | 支持的语种列表
 | com.swjtu.util | Util | 工具包
 | com.swjtu.querier | Querier | 查询器
-| com.swjtu.trans | Translator、Baidu、Youdao、Google、Tencent、Omi、Trycan、Iciba | 翻译器
+| com.swjtu.trans | Translator、Baidu、Youdao、Google、Tencent、Omi、Trycan、Iciba、Sogou | 翻译器
 
 ### 2、类说明
 - Lang 枚举：定义所支持或将支持的语种，统一并规范了语种列表。
