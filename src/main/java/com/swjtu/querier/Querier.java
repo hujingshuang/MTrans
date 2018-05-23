@@ -1,49 +1,51 @@
 package com.swjtu.querier;
 
-import com.swjtu.lang.Lang;
-import com.swjtu.trans.Translator;
+import com.swjtu.http.AbstractHttpAttribute;
+import com.swjtu.lang.LANG;
+import com.swjtu.tts.AbstractTTS;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Querier {
-    private Lang from;
-    private Lang to;
+public final class Querier<T extends AbstractHttpAttribute> {
+    private LANG from;
+    private LANG to;
     private String text;
+    private List<T> collection;
 
-    private List<Translator> translators;
-
-    private static class QuerierHolder {
-        public static Querier querier = new Querier();
-    }
-
-    public static Querier getQuerier() {
-        return QuerierHolder.querier;
-    }
-
-    private Querier() {
-        translators = new ArrayList<Translator>();
+    public Querier() {
+        collection = new ArrayList<T>();
     }
 
     public List<String> execute() {
         List<String> result = new ArrayList<String>();
-        for (Translator translator : translators) {
-            result.add(translator.run(from, to, text));
+
+        for (T element : collection) {
+            if (element.getClass().getName().contains("Translator")) {
+                result.add(element.run(from, to, text));
+            } else if (element.getClass().getName().contains("TTS")) {
+                result.add(element.run(from, text));
+            }
         }
         return result;
     }
 
-    public void setParams(Lang from, Lang to, String text) {
+    public void setParams(LANG from, LANG to, String text) {
         this.from = from;
         this.to = to;
         this.text = text;
     }
 
-    public void attach(Translator translator){
-        translators.add(translator);
+    public void setParams(LANG source, String text) {
+        this.from = source;
+        this.text = text;
     }
 
-    public void detach(Translator translator) {
-        translators.remove(translator);
+    public void attach(T element){
+        collection.add(element);
+    }
+
+    public void detach(T element) {
+        collection.remove(element);
     }
 }
