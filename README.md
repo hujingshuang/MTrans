@@ -1,29 +1,29 @@
 # MTrans 项目介绍
 
-本项目 [**多源翻译器**](https://github.com/hujingshuang/MTrans) (Multisource Translator, MTrans)，提供了集多种常见的 **在线翻译** 及 **TTS** 功能于一身的轻量级服务。通过程序向所支持的在线目标服务器发送 HTTP 请求，获取并解析返回的结果，为使用者提供便利。目前，本项目**免费开源**，开发者可基于此进行二次开发。
+本项目 [**多源翻译**](https://github.com/hujingshuang/MTrans) (Multi-source Translation, MTrans)，提供了集多种主流的 **在线翻译** 及 **TTS** 功能于一身的轻量级服务。通过程序向所支持的在线目标服务器发送 HTTP 请求，获取并解析返回的结果，为使用者提供便利。目前，本项目**免费开源**，开发者可基于此进行二次开发。
 
 目前支持 **源** 及 **语种** 如下:
 
-| 翻译源 | 支持语种 | 方式
+| 翻译源 | 服务器地址 | 支持语种 | 方式
+| :-: | :-: | :-: | :-: |
+| [百度翻译](http://fanyi.baidu.com/) | http://fanyi.baidu.com/v2transapi | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
+| [有道翻译](http://fanyi.youdao.com/) | http://fanyi.youdao.com/translate_o | 中文、英语、日语、韩语、法语、俄语 | 互译
+| [谷歌翻译](http://translate.google.cn/) | https://translate.google.cn/translate_a/single | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
+| [腾讯翻译君](http://fanyi.qq.com/) | http://fanyi.qq.com/api/translate | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
+| [欧米翻译](http://www.omifanyi.com/) | http://www.omifanyi.com/transSents.do | 中文、英语 | 互译
+| [TryCan](http://www.trycan.com/) | http://fanyi.trycan.com/Transfer.do | 中文、英语 | 互译
+| [金山爱词霸](http://fy.iciba.com/) | http://fy.iciba.com/ajax.php?a=fy | 中文、英语、日语、韩语、法语、德语 | 互译
+| [搜狗翻译](http://fanyi.sogou.com/) | http://fanyi.sogou.com/reventondc/translate | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
+
+
+
+| TTS 源  | 服务器地址 | 支持语种
 | :-: | :-: | :-: |
-| [百度翻译](http://fanyi.baidu.com/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
-| [有道翻译](http://fanyi.youdao.com/) | 中文、英语、日语、韩语、法语、俄语 | 互译
-| [谷歌翻译](http://translate.google.cn/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
-| [腾讯翻译君](http://fanyi.qq.com/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
-| [欧米翻译](http://www.omifanyi.com/) | 中文、英语 | 互译
-| [TryCan](http://www.trycan.com/) | 中文、英语 | 互译
-| [金山爱词霸](http://fy.iciba.com/) | 中文、英语、日语、韩语、法语、德语 | 互译
-| [搜狗翻译](http://fanyi.sogou.com/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
-
-
-
-| TTS 源  | 支持语种
-| :-: | :-: |
-| [百度 TTS](http://fanyi.baidu.com/) | 中文、英语、日语、韩语、法语、俄语、德语、泰语
-| [有道 TTS](http://fanyi.youdao.com/) | 英语、日语、韩语、法语
-| [谷歌 TTS](http://translate.google.cn/) | 中文、英语、日语、韩语、法语、俄语、德语
-| [腾讯 TTS](http://fanyi.qq.com/) | 中文、英语、日语、韩语
-| [搜狗 TTS](http://fanyi.sogou.com/) | 中文、英语
+| [百度 TTS](http://fanyi.baidu.com/) | http://fanyi.baidu.com/gettts | 中文、英语、日语、韩语、法语、俄语、德语、泰语
+| [有道 TTS](http://fanyi.youdao.com/) | http://tts.youdao.com/fanyivoice | 英语、日语、韩语、法语
+| [谷歌 TTS](http://translate.google.cn/) | https://translate.google.cn/translate_tts | 中文、英语、日语、韩语、法语、俄语、德语
+| [腾讯 TTS](http://fanyi.qq.com/) | http://audiodetect.browser.qq.com:8080/tts | 中文、英语、日语、韩语
+| [搜狗 TTS](http://fanyi.sogou.com/) | http://fanyi.sogou.com/reventondc/synthesis | 中文、英语
 
 
 
@@ -104,14 +104,14 @@
 
 | 包名 | 包含类 | 说明
 | :- | :-: | :-: |
-| com.swjtu.lang | LANG | 枚举类型，支持的语种列表
-| com.swjtu.util | Util | 工具包
-| com.swjtu.http | HttpParams、AbstractHttpAttribute | HTTP 方法接口及抽象类
-| com.swjtu.querier | Querier | 泛型，查询器
-| com.swjtu.trans | AbstractTranslator | 翻译器(抽象)类
-| com.swjtu.trans.impl | BaiduTranslator、GoogleTranslator、YoudaoTranslator、IcibaTranslator、OmiTranslator、SogouTranslator、TencentTranslator、TrycanTranslator | 翻译器实体类
-| com.swjtu.tts | AbstractTTS | TTS 抽象类
-| com.swjtu.tts.impl | BaiduTTS、YoudaoTTS、GoogleTTS、TencentTTS、SogouTTS | TTS 实体类
+| [com.swjtu.lang](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/lang) | [LANG](https://github.com/hujingshuang/MTrans/blob/master/src%2Fmain%2Fjava%2Fcom%2Fswjtu%2Flang%2FLang.java) | 枚举类型，支持的语种列表
+| [com.swjtu.util](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/util) | [Util](https://github.com/hujingshuang/MTrans/blob/master/src%2Fmain%2Fjava%2Fcom%2Fswjtu%2Futil%2FUtil.java) | 工具包
+| [com.swjtu.http](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/http) | [HttpParams](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/http/HttpParams.java)、[AbstractHttpAttribute](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/http/AbstractHttpAttribute.java) | HTTP 方法接口及抽象类
+| [com.swjtu.querier](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/querier) | [Querier](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/querier/Querier.java) | 泛型，查询器
+| [com.swjtu.trans](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/trans) | [AbstractTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/AbstractTranslator.java) | 翻译器(抽象)类
+| [com.swjtu.trans.impl](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/trans/impl) | [BaiduTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/BaiduTranslator.java)、[GoogleTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/GoogleTranslator.java)、[YoudaoTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/YoudaoTranslator.java)、[IcibaTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/IcibaTranslator.java)、[OmiTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/OmiTranslator.java)、[SogouTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/SogouTranslator.java)、[TencentTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/TencentTranslator.java)、[TrycanTranslator](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/trans/impl/TrycanTranslator.java) | 翻译器实体类
+| [com.swjtu.tts](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/tts) | [AbstractTTS](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/tts/AbstractTTS.java) | TTS 抽象类
+| [com.swjtu.tts.impl](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/tts/impl) | [BaiduTTS](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/tts/impl/BaiduTTS.java)、[YoudaoTTS](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/tts/impl/YoudaoTTS.java)、[GoogleTTS](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/tts/impl/GoogleTTS.java)、[TencentTTS](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/tts/impl/TencentTTS.java)、[SogouTTS](https://github.com/hujingshuang/MTrans/blob/master/src/main/java/com/swjtu/tts/impl/SogouTTS.java) | TTS 实体类
 
 
 ## 2、类图
@@ -166,6 +166,7 @@
     ``` java
     public static List<NameValuePair> map2list(Map<String, String> mapParams);              // 将 Map 转换成 List
     public static String getUrlWithQueryString(String url, Map<String, String> params);     // 生成 URL
+
     // 各种格式的 MD5
     public static String md5(String input);
     public static String md5(File file);
@@ -304,7 +305,7 @@ public void detach(T element);                       // 移除查询器中的元
 		TH,             // 泰语
 		FRA,            // 法语
 		SPA,            // 西班牙语    <---  添加语种(自定义语种代号)
-		KOR             // 韩语
+		KOR,            // 韩语
 		....
 	}
 	```
@@ -318,7 +319,7 @@ public void detach(T element);                       // 移除查询器中的元
         langMap.put(LANG.KOR, "ko");
         langMap.put(LANG.FRA, "fr");
         langMap.put(LANG.RU, "ru");
-        langMap.put(Lang.SPA, "es");                  // 添加代号映射
+        langMap.put(LANG.SPA, "es");                  // 添加代号映射
     }
 	```
 
