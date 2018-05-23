@@ -1,10 +1,11 @@
 # MTrans 项目介绍
+
 本项目 [**多源翻译器**](https://github.com/hujingshuang/MTrans) (Multisource Translator, MTrans)，提供了集多种常见的 **在线翻译** 及 **TTS** 功能于一身的轻量级服务。通过程序向所支持的在线目标服务器发送 HTTP 请求，获取并解析返回的结果，为使用者提供便利。目前，本项目**免费开源**，开发者可基于此进行二次开发。
 
 目前支持 **源** 及 **语种** 如下:
 
 | 翻译源 | 支持语种 | 方式
-| :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: |
 | [百度翻译](http://fanyi.baidu.com/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
 | [有道翻译](http://fanyi.youdao.com/) | 中文、英语、日语、韩语、法语、俄语 | 互译
 | [谷歌翻译](http://translate.google.cn/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
@@ -15,6 +16,7 @@
 | [搜狗翻译](http://fanyi.sogou.com/) | 中文、英语、日语、韩语、法语、俄语、德语 | 互译
 
 
+
 | TTS 源  | 支持语种
 | :-: | :-: |
 | [百度 TTS](http://fanyi.baidu.com/) | 中文、英语、日语、韩语、法语、俄语、德语、泰语
@@ -22,6 +24,7 @@
 | [谷歌 TTS](http://translate.google.cn/) | 中文、英语、日语、韩语、法语、俄语、德语
 | [腾讯 TTS](http://fanyi.qq.com/) | 中文、英语、日语、韩语
 | [搜狗 TTS](http://fanyi.sogou.com/) | 中文、英语
+
 
 
 # 一、快速开始
@@ -40,6 +43,7 @@
     <version>2.9.5</version>
 </dependency>
 ```
+
 
 ## 2、最小实例
 - 最小翻译实例
@@ -93,6 +97,7 @@
     }
     ```
 
+
 # 二、MTrans 使用说明
 ## 1、包/类 一览表
 本项目中主要定义了如下几个包，其命名及作用如下表：
@@ -109,7 +114,42 @@
 | com.swjtu.tts.impl | BaiduTTS、YoudaoTTS、GoogleTTS、TencentTTS、SogouTTS | TTS 实体类
 
 
-## 2、类说明
+## 2、类图
+
+- [项目结构](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu)
+
+    ![总览](https://github.com/hujingshuang/MTrans/blob/master/source%2Ftest.png)
+
+- [com.swjtu.http](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/http) 包 / 类图
+
+    ![com.swjtu.http](https://github.com/hujingshuang/MTrans/blob/master/source%2Fhttp.png)
+
+- [com.swjtu.querier](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/querier) 包 / 类图
+
+    ![com.swjtu.querier](https://github.com/hujingshuang/MTrans/blob/master/source%2Fquerier.png)
+
+- [com.swjtu.trans](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/trans) 包 / 类图
+
+    ![com.swjtu.trans](https://github.com/hujingshuang/MTrans/blob/master/source%2Ftrans.png)
+
+- [com.swjtu.trans.impl](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/trans/impl) 包 / 类图
+    
+    ![com.swjtu.trans.impl](https://github.com/hujingshuang/MTrans/blob/master/source%2Ftrans.impl.png)
+
+- [com.swjtu.tts](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/tts) 包 / 类图
+    
+    ![com.swjtu.tts](https://github.com/hujingshuang/MTrans/blob/master/source%2Ftts.png)
+
+- [com.swjtu.tts.impl](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/tts/impl) 包 / 类图
+
+    ![com.swjtu.tts.impl](https://github.com/hujingshuang/MTrans/blob/master/source%2Ftts.impl.png)
+
+- [com.swjtu.util](https://github.com/hujingshuang/MTrans/tree/master/src/main/java/com/swjtu/util) 包 / 类图
+
+    ![com.swjtu.util](https://github.com/hujingshuang/MTrans/blob/master/source%2Futil.png)
+
+
+## 3、类说明
 - `LANG` 枚举：定义所支持或将支持的语种，统一并规范了语种列表。
     ``` java
     public enum LANG {
