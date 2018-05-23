@@ -1,4 +1,6 @@
 # Java
 /.idea/
 /target/
+/tts/
 *.iml
+pom.xml
