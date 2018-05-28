@@ -196,8 +196,8 @@
             return result;
         }
 
-        public void attach(T translator);
-        public void detach(T translator);
+        public void attach(T element);
+        public void detach(T element);
 
         ...
     }
