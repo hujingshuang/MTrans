@@ -21,7 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public final class BaiduTranslator extends AbstractTranslator {
-    private static final String url = "http://fanyi.baidu.com/v2transapi";
+    private static final String url = "https://fanyi.baidu.com/v2transapi";
 
     public BaiduTranslator(){
         super(url);
