@@ -14,7 +14,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 
 public final class TencentTranslator extends AbstractTranslator {
-    private static final String url = "http://fanyi.qq.com/api/translate";
+    private static final String url = "https://fanyi.qq.com/api/translate";
 
     public TencentTranslator(){
         super(url);
